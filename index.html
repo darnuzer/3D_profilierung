@@ -3,41 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Building Viewer</title>
+    <title>AR Cube Viewer</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script>
-        AFRAME.registerComponent('model-viewer', {
-            init: function () {
-                this.el.addEventListener('model-loaded', () => {
-                    console.log('Model loaded successfully');
-                });
-                this.el.addEventListener('model-error', (error) => {
-                    console.error('Error loading model:', error);
-                });
-            }
-        });
-    </script>
 </head>
 <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-        <a-assets>
-            <!-- Explicitly load the .gltf model -->
-            <a-asset-item id="building-model" src="building.gltf"></a-asset-item>
-            <!-- If needed, you can explicitly list other assets like textures or additional binary files -->
-            <!-- This line assumes that the .bin file is correctly referenced within the .gltf file -->
-        </a-assets>
-
+        
         <a-marker preset="hiro">
-            <a-entity
-                gltf-model="#building-model"
-                scale="0.01 0.01 0.01"  <!-- Zmenšení na 1/100 původní velikosti -->
-                position="0 0 0"
-                rotation="0 0 0"
-                model-viewer>
-            </a-entity>
-            <a-box position="-1 0.5 0" scale="0.1 0.1 0.1" color="red"></a-box>
-            <a-sphere position="1 0.5 0" scale="0.1 0.1 0.1" color="blue"></a-sphere>
+            <a-box
+                position="0 0.5 0"
+                rotation="0 45 0"
+                color="#4CC3D9"
+                scale="0.2 0.2 0.2">
+            </a-box>
         </a-marker>
 
         <a-entity camera></a-entity>
