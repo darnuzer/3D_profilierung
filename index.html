@@ -22,7 +22,10 @@
 <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         <a-assets>
+            <!-- Explicitly load the .gltf model -->
             <a-asset-item id="building-model" src="building.gltf"></a-asset-item>
+            <!-- If needed, you can explicitly list other assets like textures or additional binary files -->
+            <!-- This line assumes that the .bin file is correctly referenced within the .gltf file -->
         </a-assets>
 
         <a-marker preset="hiro">
